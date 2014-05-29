@@ -27,7 +27,7 @@
  * @return  The total columb energy.
  */
 float ewald(float *X, float *Y, float *Z, int nparticles, float *q, float alpha,
-            float L, float dc, float rcut, int kcut);
+            float L, float rcut, int kcut);
 
 
 #endif

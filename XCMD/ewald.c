@@ -11,6 +11,111 @@
 #include "ewald.h"
 
 
+#define PI_ROOT     1.7724538509055159
+
+#if __clang__
+#pragma mark - Screening Functions
+#endif
+
+/**
+ * @function scrfc
+ * The zero order screening function.
+ */
+float scrfc(float alpha, float R)
+{
+    return erfcf(alpha * R);
+}
+
+/**
+ * @function dscrfc
+ * The derivative of zero order screening function to R.
+ */
+float dscrfc(float alpha, float R)
+{
+    float kr = alpha * R;
+    return -2.0 * expf(-kr * kr) / PI_ROOT * alpha;
+}
+
+/**
+ * @function scrf1
+ * The first order screening function.
+ */
+float scrf1(float alpha, float R)
+{
+    float kr = alpha * R;
+    return 2.0 * kr * expf(-kr * kr) / PI_ROOT + scrfc(alpha, R);
+}
+
+/**
+ * @function dscrf1
+ * The derivative of first order screening function to R.
+ */
+float dscrf1(float alpha, float R)
+{
+    float kr = alpha * R;
+    float expz = expf(-kr * kr);
+    float dR = 2.0 / PI_ROOT * alpha * expz;
+    dR += 2.0 * kr / PI_ROOT * (-2.0 * alpha * alpha * R) * expz;
+    return dR + dscrfc(alpha, R);
+}
+
+/**
+ * @function scrf2
+ * The second order screening function.
+ */
+float scrf2(float alpha, float R)
+{
+    float kr = alpha * R;
+    return 4.0 * alpha * alpha * alpha * expf(-kr * kr) / R / R / PI_ROOT;
+}
+
+/**
+ * @function dscrf2
+ * The derivative of second order screening function to R.
+ */
+float dscrf2(float alpha, float R)
+{
+    float kr = alpha * R;
+    float c = 4.0 * alpha * alpha * alpha / PI_ROOT;
+    float expz = expf(-kr * kr);
+    float dR = kr * kr / R + 1.0 / (R * R * R);
+    return -2.0 * dR * expz * c;
+}
+
+/**
+ * @function scrf3
+ * The third order screen function.
+ */
+float scrf3(float alpha, float R)
+{
+    return R * R * R * scrf2(alpha, R);
+}
+
+/**
+ * @function scrf4
+ * The fourth order screen function.
+ */
+float scrf4(float alpha, float R)
+{
+    float kr = alpha * R;
+    float R4 = R * R * R * R;
+    return 8.0 * alpha / PI_ROOT * (kr * kr + 1.0) / R4 * expf(-kr * kr);
+}
+
+/**
+ * @function scrf5
+ * The fifth order screen function.
+ */
+float scrf5(float alpha, float R)
+{
+    return R * R * R * scrf4(alpha, R) - 3.0 * R * scrf2(alpha, R);
+}
+
+
+#if __clang__
+#pragma mark - Ewald Summation Algorithm
+#endif
+
 float ewald_kval(float kx, float ky, float kz, float rijx, float rijy,
                  float rijz, float qiqj, float alpha2i)
 {

@@ -9,6 +9,59 @@
 #ifndef __XCMD_EWALD_H__
 #define __XCMD_EWALD_H__
 
+/**
+ * @function scrfc
+ * The zero order screening function.
+ */
+extern float scrfc(float alpha, float R);
+
+/**
+ * @function dscrfc
+ * The derivative of zero order screening function to R.
+ */
+extern float dscrfc(float alpha, float R);
+
+/**
+ * @function scrf1
+ * The first order screening function.
+ */
+extern float scrf1(float alpha, float R);
+
+/**
+ * @function dscrf1
+ * The derivative of first order screening function to R.
+ */
+extern float dscrf1(float alpha, float R);
+
+/**
+ * @function scrf2
+ * The second order screening function.
+ */
+extern float scrf2(float alpha, float R);
+
+/**
+ * @function dscrf2
+ * The derivative of second order screening function to R.
+ */
+extern float dscrf2(float alpha, float R);
+
+/**
+ * @function scrf3
+ * The third order screen function.
+ */
+extern float scrf3(float alpha, float R);
+
+/**
+ * @function scrf4
+ * The fourth order screen function.
+ */
+extern float scrf4(float alpha, float R);
+
+/**
+ * @function scrf5
+ * The fifth order screen function.
+ */
+extern float scrf5(float alpha, float R);
 
 /**
  * @function ewald

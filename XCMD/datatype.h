@@ -41,6 +41,7 @@ typedef struct __xcmd_object
     float epsilon;  /* the parameter epsilon in LJ potential. */
     float box;      /* the simulation cubic box side length. */
     float rc2;      /* the square of cutoff radius. */
+    float virial;   /* the total virial of the system. */
 } xcmd_object_t;
 
 

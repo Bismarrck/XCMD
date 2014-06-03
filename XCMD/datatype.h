@@ -15,6 +15,9 @@ typedef struct __xcmd_object
     float *px;      /* the position coordinates on X. */
     float *py;      /* the position coordinates on Y. */
     float *pz;      /* the position coordinates on Z. */
+    float vxt;      /* the velocity centre of mass on X. */
+    float vyt;      /* the velocity centre of mass on Y. */
+    float vzt;      /* the velocity centre of mass on Z. */
     float *fx;      /* the forces on X */
     float *fy;      /* the forces on Y */
     float *fz;      /* the forces on Z */
@@ -22,6 +25,9 @@ typedef struct __xcmd_object
     float *vy;      /* the velocities on Y. */
     float *vz;      /* the velocities on Z. */
     int nparticle;  /* the number of particles in this molecular. */
+    float temp;     /* the desired temperature. */
+    float steptime; /* the time between two simulations. */
+    int nsteps;     /* the number of total simulation steps. */
 } xcmd_object_t;
 
 

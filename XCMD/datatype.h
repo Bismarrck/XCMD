@@ -34,8 +34,11 @@ typedef struct __xcmd_object
     float *vz;      /* the velocities on Z. */
     int nparticle;  /* the number of particles in this molecular. */
     float temp;     /* the desired temperature. */
-    float steptime; /* the time between two simulations. */
+    float timestep; /* the time between two simulations. */
     int nsteps;     /* the number of total simulation steps. */
+    float etot;     /* the total energy of current step. */
+    float ekin;     /* the kinetic energy. */
+    float epot;     /* the potential energy. */
 } xcmd_object_t;
 
 

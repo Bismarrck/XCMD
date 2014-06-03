@@ -59,7 +59,7 @@ xcmd_object_t *io_read_input(const char *filepath)
     
     // Set the options for the MD simulation
     object->temp = temp;
-    object->steptime = steptime;
+    object->timestep = steptime;
     object->nsteps = nsteps;
     
     // Second pass to get the initial coordinates.

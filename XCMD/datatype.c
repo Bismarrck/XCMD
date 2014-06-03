@@ -25,6 +25,7 @@ xcmd_object_t *xcmd_init_object(int nparticles)
     object->sigma = 0.0;
     object->rc2 = 0.0;
     object->box = 0.0;
+    object->ecut = 0.0;
     object->fx = calloc(sizeof(float), nparticles);
     object->fy = calloc(sizeof(float), nparticles);
     object->fz = calloc(sizeof(float), nparticles);

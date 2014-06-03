@@ -27,6 +27,9 @@ xcmd_object_t *xcmd_init_object(int nparticles)
     object->vx = calloc(sizeof(float), nparticles);
     object->vy = calloc(sizeof(float), nparticles);
     object->vz = calloc(sizeof(float), nparticles);
+    object->xm = calloc(sizeof(float), nparticles);
+    object->ym = calloc(sizeof(float), nparticles);
+    object->zm = calloc(sizeof(float), nparticles);
     
     return object;
 }
@@ -72,6 +75,18 @@ void xcmd_object_release(xcmd_object_t *object)
     
     if (object->vz) {
         free(object->vz);
+    }
+    
+    if (object->xm) {
+        free(object->xm);
+    }
+    
+    if (object->ym) {
+        free(object->ym);
+    }
+    
+    if (object->zm) {
+        free(object->zm);
     }
     
     free(object);

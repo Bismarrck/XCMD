@@ -20,6 +20,9 @@ typedef struct __xcmd_object
     float *px;      /* the position coordinates on X. */
     float *py;      /* the position coordinates on Y. */
     float *pz;      /* the position coordinates on Z. */
+    float *xm;      /* the position coordinates of previous step on X. */
+    float *ym;      /* the position coordinates of previous step on Y. */
+    float *zm;      /* the position coordinates of previous step on Z. */
     float vxt;      /* the velocity centre of mass on X. */
     float vyt;      /* the velocity centre of mass on Y. */
     float vzt;      /* the velocity centre of mass on Z. */

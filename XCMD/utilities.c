@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "utilities.h"
 
 
@@ -23,4 +24,16 @@ int string_to_int(char *string, int base)
     char *end;
     int res = (int)strtol(string, &end, base);
     return res;
+}
+
+void random_seed(void)
+{
+    time_t seed;
+    time(&seed);
+    srandom((unsigned int) seed);
+}
+
+float random_uniform(void)
+{
+    return (random() + 1.0) / (RAND_MAX + 1.0);
 }

@@ -15,6 +15,8 @@
  * @function velocity_init_random
  * Init the velocities for each atom in the MD system with simple random
  * distribution.
+ *
+ * @see Understanding Molecular Simulation, 4.1.1, 4.1.2, 4.2.1, 4.2.2
  */
 void velocity_init_random(xcmd_object_t *md)
 {
@@ -77,3 +79,4 @@ void velocity_init_boltzmann(xcmd_object_t *object)
 {
     
 }
+

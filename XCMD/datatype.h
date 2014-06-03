@@ -9,7 +9,12 @@
 #ifndef __XCMD_DATATYPE_H__
 #define __XCMD_DATATYPE_H__
 
-
+/**
+ * @class xcmd_object_t
+ *
+ * @param temp  T*kB where T is the simulation temperature and kB is the
+ *              Boltzmann constants.
+ */
 typedef struct __xcmd_object
 {
     float *px;      /* the position coordinates on X. */

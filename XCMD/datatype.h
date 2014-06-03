@@ -38,6 +38,8 @@ typedef struct __xcmd_object
     float epot;     /* the potential energy of current step. */
     float sigma;    /* the parameter sigma in LJ potential. */
     float epsilon;  /* the parameter epsilon in LJ potential. */
+    float box;      /* the simulation cubic box side length. */
+    float rc2;      /* the square of cutoff radius. */
 } xcmd_object_t;
 
 

@@ -36,6 +36,8 @@ typedef struct __xcmd_object
     float ekin;     /* the kinetic energy of current step. */
     float etot;     /* the total energy of current step. */
     float epot;     /* the potential energy of current step. */
+    float sigma;    /* the parameter sigma in LJ potential. */
+    float epsilon;  /* the parameter epsilon in LJ potential. */
 } xcmd_object_t;
 
 

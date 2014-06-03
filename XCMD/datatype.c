@@ -18,6 +18,11 @@ xcmd_object_t *xcmd_init_object(int nparticles)
     object->temp = 0.0;
     object->timestep = 1.0;
     object->nsteps = 10;
+    object->ekin = 0.0;
+    object->epot = 0.0;
+    object->epsilon = 0.0;
+    object->etot = 0.0;
+    object->sigma = 0.0;
     object->fx = calloc(sizeof(float), nparticles);
     object->fy = calloc(sizeof(float), nparticles);
     object->fz = calloc(sizeof(float), nparticles);

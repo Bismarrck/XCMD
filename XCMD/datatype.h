@@ -20,9 +20,6 @@ typedef struct __xcmd_object
     float *px;      /* the position coordinates on X. */
     float *py;      /* the position coordinates on Y. */
     float *pz;      /* the position coordinates on Z. */
-    float *xm;      /* the position coordinates of previous step on X. */
-    float *ym;      /* the position coordinates of previous step on Y. */
-    float *zm;      /* the position coordinates of previous step on Z. */
     float vxt;      /* the velocity centre of mass on X. */
     float vyt;      /* the velocity centre of mass on Y. */
     float vzt;      /* the velocity centre of mass on Z. */
@@ -36,9 +33,9 @@ typedef struct __xcmd_object
     float temp;     /* the desired temperature. */
     float timestep; /* the time between two simulations. */
     int nsteps;     /* the number of total simulation steps. */
+    float ekin;     /* the kinetic energy of current step. */
     float etot;     /* the total energy of current step. */
-    float ekin;     /* the kinetic energy. */
-    float epot;     /* the potential energy. */
+    float epot;     /* the potential energy of current step. */
 } xcmd_object_t;
 
 

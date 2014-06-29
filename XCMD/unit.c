@@ -52,5 +52,5 @@ float reducedPressToSI(float rp)
  */
 float reducedEnergyToSI(float re)
 {
-    return re * 8.6173324 * 0.01;
+    return re * 8.6173324;
 }

@@ -106,4 +106,19 @@ void velocity_rescale(xcmd_object_t *object)
     }
 }
 
+void velocity_kinetic_energy(xcmd_object_t *object)
+{
+    float vx2 = 0.0;
+    float vy2 = 0.0;
+    float vz2 = 0.0;
+    float v2 = 0.0;
+    for (int i = 0; i < object->nparticle; i ++) {
+        vx2 = object->vx[i] * object->vx[i];
+        vy2 = object->vy[i] * object->vy[i];
+        vz2 = object->vz[i] * object->vz[i];
+        v2 += (vx2 + vy2 + vz2);
+    }
+    object->ekin = 0.5 * v2;
+}
+
 

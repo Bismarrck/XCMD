@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include <sys/stat.h>
 #include "utilities.h"
 
@@ -37,6 +38,24 @@ void random_seed(void)
 float random_uniform(void)
 {
     return (random() + 1.0) / (RAND_MAX + 1.0);
+}
+
+float gauss(float sigma)
+{
+    static double U, V;
+	static int phase = 0;
+	double Z = 0.0;
+    
+	if (phase == 0) {
+		U = random_uniform();
+		V = (float)random_uniform() / RAND_MAX;
+		Z = sqrt(-2 * log(U)) * sin(2 * M_PI * V);
+	} else {
+		Z = sqrt(-2 * log(U)) * cos(2 * M_PI * V);
+    }
+	phase = 1 - phase;
+    
+	return Z * sigma;
 }
 
 int isFileExists(const char *filepath)

@@ -15,6 +15,7 @@
 #include "potential.h"
 #include "velocity.h"
 #include "motion.h"
+#include "unit.h"
 
 
 void xcmd_energy_update(xcmd_object_t *md)
@@ -22,62 +23,21 @@ void xcmd_energy_update(xcmd_object_t *md)
     md->etot = md->ekin + md->epot;
 }
 
-void rdf_init(xcmd_object_t *md)
+void sample_averages(xcmd_object_t *md, int step)
 {
-    md->ngr = 0;
-    md->deltg = md->box / (2.0 * md->nbin);
-    md->gr = calloc(sizeof(float), md->nbin);
-}
-
-void rdf_sample(xcmd_object_t *md)
-{
-    float xi = 0.0;
-    float yi = 0.0;
-    float zi = 0.0;
-    float dx = 0.0;
-    float dy = 0.0;
-    float dz = 0.0;
-    float r2 = 0.0;
-    float box = md->box;
-    float b2 = box * box;
-    int ig = 0;
+    float temp = 2.0 * md->ekin / (3.0 * md->nparticle);
+    float vol = md->box * md->box * md->box;
+    float rho = md->nparticle / vol;
+    float press = rho * temp + md->virial / (3.0 * vol);
     
-    md->ngr ++;
-    for (int i = 0; i < md->nparticle - 1; i ++) {
-        xi = md->px[i];
-        yi = md->py[i];
-        zi = md->pz[i];
-        for (int j = i + 1; j < md->nparticle; j ++) {
-            dx = xi - md->px[j];
-            dy = yi - md->py[j];
-            dz = zi - md->pz[j];
-            dx -= box * floorf(dx / box);
-            dy -= box * floorf(dy / box);
-            dz -= box * floorf(dz / box);
-            
-            r2 = dx * dx + dy * dy + dz * dz;
-            if (r2 < b2) {
-                ig = (int)floor(sqrt(r2) / md->deltg);
-                md->gr[ig] += 1.0;
-            }
-        }
-    }
-}
-
-void rdf_determine(xcmd_object_t *md)
-{
-    float r = 0.0;
-    float vb = 0.0;
-    float nid = 0.0;
-    float d3 = pow(md->deltg, 3);
-    float c = 4.0 / 3.0;
-    float rho = 0.0;
-    for (int i = 0; i < md->nbin; i ++) {
-        r = md->deltg * (i + 0.5);
-        vb = (pow(i + 1, 3.0) - i * i * i) * d3;
-        nid = c * M_PI * vb * rho;
-        md->gr[i] /= (md->ngr * md->nparticle * nid);
-    }
+    fprintf(xcmdout, "Sample averages on step %3d : \
+            % 6.4f % 10.8f % 16.12f % 16.12f % 16.12f\n",
+            step,
+            reducedTemperatureToSI(temp),
+            reducedPressToSI(press),
+            reducedEnergyToSI(md->epot / md->nparticle),
+            reducedEnergyToSI(md->ekin / md->nparticle),
+            reducedEnergyToSI(md->etot / md->nparticle));
 }
 
 int main(int argc, const char * argv[])
@@ -88,16 +48,17 @@ int main(int argc, const char * argv[])
     }
     
     // Init the global output stream.
-    xcmd_global_init(argv[2]);
+    xcmd_global_init(argv[1]);
     
     // Read the input file.
-    xcmd_object_t *md = io_read_input(argv[1]);
+    xcmd_object_t *md = io_read_input(argv[2]);
     
     // Set the initial velocities
     velocity_init_random(md);
     
     // Calculate the initial total energy of the system.
     potential_lenard_jones(md);
+    velocity_kinetic_energy(md);
     xcmd_energy_update(md);
     
     // step : the number of simulation eclipsed.
@@ -114,37 +75,29 @@ int main(int argc, const char * argv[])
         step ++;
         time += md->timestep;
         
-        if (time < md->tequil) {
-            // Rescale the velocity every 20 steps before equilibration
-            if (md->scale && step % 20 == 0) {
-                velocity_rescale(md);
-            }
-        } else if (step % md->sampfreq == 0) {
-            if (md->sampling) {
-                
-            }
-            if (md->convdiff == false) {
-                
-            }
+        // Rescale the velocity every 20 steps before equilibration
+        if (time < md->tequil && md->scale && step % 20 == 0) {
+            velocity_rescale(md);
         }
         
+        // Sample averages for every step.
+        sample_averages(md, step);
+        
+        // Output the coordinates, forces and velocities.
         if (step % md->outfreq == 0) {
-            
+            io_output_coordinate(md, step);
+            io_output_force(md, step);
+            io_output_velocity(md, step);
         }
     }
     
+    // Calculate the final total energy of this system.
     potential_lenard_jones(md);
-    if (md->sampling) {
+    velocity_kinetic_energy(md);
+    xcmd_energy_update(md);
         
-    }
-    if (md->convdiff == false) {
-        
-    }
-    
-    // write
-    // store
-    
     // Release the main object.
+    xcmd_global_finalize();
     xcmd_object_release(md);
     
     return 0;

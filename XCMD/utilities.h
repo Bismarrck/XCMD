@@ -36,5 +36,11 @@ extern void random_seed(void);
  */
 extern float random_uniform(void);
 
+/**
+ * @function isFileExists
+ * Check if the file exists or not, given the filepath. Return 1 if exists.
+ */
+int isFileExists(const char *filepath);
+
 
 #endif

@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <sys/stat.h>
 #include "utilities.h"
 
 
@@ -36,4 +37,10 @@ void random_seed(void)
 float random_uniform(void)
 {
     return (random() + 1.0) / (RAND_MAX + 1.0);
+}
+
+int isFileExists(const char *filepath)
+{
+	struct stat buffer;
+	return (stat(filepath, &buffer) == 0);
 }

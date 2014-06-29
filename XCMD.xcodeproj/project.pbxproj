@@ -9,7 +9,16 @@
 /* Begin PBXBuildFile section */
 		3209DBC5192B65C800C9BF0A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3209DBC4192B65C800C9BF0A /* main.c */; };
 		3209DBC7192B65C800C9BF0A /* XCMD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3209DBC6192B65C800C9BF0A /* XCMD.1 */; };
+		325253F8193D955B00B484CB /* velocity.c in Sources */ = {isa = PBXBuildFile; fileRef = 325253F7193D955B00B484CB /* velocity.c */; };
+		325253FE193DEB8A00B484CB /* verlet.c in Sources */ = {isa = PBXBuildFile; fileRef = 325253FD193DEB8A00B484CB /* verlet.c */; };
+		32525400193DEB9200B484CB /* leapfrog.c in Sources */ = {isa = PBXBuildFile; fileRef = 325253FF193DEB9200B484CB /* leapfrog.c */; };
+		32525403193DF25C00B484CB /* lj.c in Sources */ = {isa = PBXBuildFile; fileRef = 32525402193DF25C00B484CB /* lj.c */; };
+		326A4FD3195FAEA0003D9C10 /* unit.c in Sources */ = {isa = PBXBuildFile; fileRef = 326A4FD2195FAEA0003D9C10 /* unit.c */; };
 		32B89E4C192B9CA300D9E4A0 /* ewald.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B89E4B192B9CA300D9E4A0 /* ewald.c */; };
+		32D36F34193CC63900FBE298 /* fileio.c in Sources */ = {isa = PBXBuildFile; fileRef = 32D36F33193CC63900FBE298 /* fileio.c */; };
+		32D36F37193CC75D00FBE298 /* datatype.c in Sources */ = {isa = PBXBuildFile; fileRef = 32D36F36193CC75D00FBE298 /* datatype.c */; };
+		32D36F3A193CCD5200FBE298 /* utilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 32D36F39193CCD5200FBE298 /* utilities.c */; };
+		32D36F3D193CCE7F00FBE298 /* global.c in Sources */ = {isa = PBXBuildFile; fileRef = 32D36F3C193CCE7F00FBE298 /* global.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +38,26 @@
 		3209DBC1192B65C800C9BF0A /* XCMD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XCMD; sourceTree = BUILT_PRODUCTS_DIR; };
 		3209DBC4192B65C800C9BF0A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3209DBC6192B65C800C9BF0A /* XCMD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = XCMD.1; sourceTree = "<group>"; };
+		325253F6193D955600B484CB /* velocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = velocity.h; sourceTree = "<group>"; };
+		325253F7193D955B00B484CB /* velocity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = velocity.c; sourceTree = "<group>"; };
+		325253FC193DEB8000B484CB /* motion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = motion.h; sourceTree = "<group>"; };
+		325253FD193DEB8A00B484CB /* verlet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = verlet.c; sourceTree = "<group>"; };
+		325253FF193DEB9200B484CB /* leapfrog.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = leapfrog.c; sourceTree = "<group>"; };
+		32525401193DF25100B484CB /* potential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = potential.h; sourceTree = "<group>"; };
+		32525402193DF25C00B484CB /* lj.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lj.c; sourceTree = "<group>"; };
+		32525404193DF44200B484CB /* force.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = force.h; sourceTree = "<group>"; };
+		326A4FD1195FAE8C003D9C10 /* unit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unit.h; sourceTree = "<group>"; };
+		326A4FD2195FAEA0003D9C10 /* unit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unit.c; sourceTree = "<group>"; };
 		32B89E4A192B9C9C00D9E4A0 /* ewald.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ewald.h; sourceTree = "<group>"; };
 		32B89E4B192B9CA300D9E4A0 /* ewald.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ewald.c; sourceTree = "<group>"; };
+		32D36F32193CC63200FBE298 /* fileio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fileio.h; sourceTree = "<group>"; };
+		32D36F33193CC63900FBE298 /* fileio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fileio.c; sourceTree = "<group>"; };
+		32D36F35193CC74000FBE298 /* datatype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datatype.h; sourceTree = "<group>"; };
+		32D36F36193CC75D00FBE298 /* datatype.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = datatype.c; sourceTree = "<group>"; };
+		32D36F38193CCD4900FBE298 /* utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		32D36F39193CCD5200FBE298 /* utilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utilities.c; sourceTree = "<group>"; };
+		32D36F3B193CCE7900FBE298 /* global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
+		32D36F3C193CCE7F00FBE298 /* global.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = global.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +94,24 @@
 				3209DBC6192B65C800C9BF0A /* XCMD.1 */,
 				32B89E4A192B9C9C00D9E4A0 /* ewald.h */,
 				32B89E4B192B9CA300D9E4A0 /* ewald.c */,
+				325253FC193DEB8000B484CB /* motion.h */,
+				325253FD193DEB8A00B484CB /* verlet.c */,
+				325253FF193DEB9200B484CB /* leapfrog.c */,
+				32525404193DF44200B484CB /* force.h */,
+				32525401193DF25100B484CB /* potential.h */,
+				32525402193DF25C00B484CB /* lj.c */,
+				325253F6193D955600B484CB /* velocity.h */,
+				325253F7193D955B00B484CB /* velocity.c */,
+				32D36F32193CC63200FBE298 /* fileio.h */,
+				32D36F33193CC63900FBE298 /* fileio.c */,
+				32D36F3B193CCE7900FBE298 /* global.h */,
+				32D36F3C193CCE7F00FBE298 /* global.c */,
+				326A4FD1195FAE8C003D9C10 /* unit.h */,
+				326A4FD2195FAEA0003D9C10 /* unit.c */,
+				32D36F35193CC74000FBE298 /* datatype.h */,
+				32D36F36193CC75D00FBE298 /* datatype.c */,
+				32D36F38193CCD4900FBE298 /* utilities.h */,
+				32D36F39193CCD5200FBE298 /* utilities.c */,
 			);
 			path = XCMD;
 			sourceTree = "<group>";
@@ -122,8 +167,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325253F8193D955B00B484CB /* velocity.c in Sources */,
+				32D36F3D193CCE7F00FBE298 /* global.c in Sources */,
 				3209DBC5192B65C800C9BF0A /* main.c in Sources */,
+				32525403193DF25C00B484CB /* lj.c in Sources */,
+				325253FE193DEB8A00B484CB /* verlet.c in Sources */,
 				32B89E4C192B9CA300D9E4A0 /* ewald.c in Sources */,
+				32D36F34193CC63900FBE298 /* fileio.c in Sources */,
+				32D36F3A193CCD5200FBE298 /* utilities.c in Sources */,
+				326A4FD3195FAEA0003D9C10 /* unit.c in Sources */,
+				32D36F37193CC75D00FBE298 /* datatype.c in Sources */,
+				32525400193DEB9200B484CB /* leapfrog.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +257,7 @@
 		3209DBCB192B65C800C9BF0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_VERSION = com.intel.compilers.icc.14_0_0;
+				GCC_VERSION = "";
 				ICC_C_LANG_DIALECT = gnu99;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -212,7 +266,7 @@
 		3209DBCC192B65C800C9BF0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_VERSION = com.intel.compilers.icc.14_0_0;
+				GCC_VERSION = "";
 				ICC_C_LANG_DIALECT = gnu99;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

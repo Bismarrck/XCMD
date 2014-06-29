@@ -31,4 +31,18 @@ void velocity_init_random(xcmd_object_t *object);
 void velocity_init_boltzmann(xcmd_object_t *object);
 
 
+/**
+ * @function velocity_rescale
+ * Simple velocity scaling function. This can only be used during equilibration!
+ */
+void velocity_rescale(xcmd_object_t *object);
+
+
+/**
+ * @function velocity_kinetic_energy
+ * Compute the current kinetic energy.
+ */
+void velocity_kinetic_energy(xcmd_object_t *object);
+
+
 #endif

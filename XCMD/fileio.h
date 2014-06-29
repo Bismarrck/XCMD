@@ -19,5 +19,23 @@
  */
 xcmd_object_t *io_read_input(const char *filepath);
 
+/**
+ * @function io_output_velocity
+ * Write the current velocities to vout.
+ */
+void io_output_velocity(xcmd_object_t *md, int step);
+
+/**
+ * @function io_output_force
+ * Write the current forces to fout.
+ */
+void io_output_force(xcmd_object_t *md, int step);
+
+/**
+ * @function io_output_coordinate
+ * Write the current coordinates to pout.
+ */
+void io_output_coordinate(xcmd_object_t *md, int step);
+
 
 #endif

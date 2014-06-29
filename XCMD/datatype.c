@@ -36,6 +36,10 @@ xcmd_object_t *xcmd_init_object(int nparticles)
     object->vx = calloc(sizeof(float), nparticles);
     object->vy = calloc(sizeof(float), nparticles);
     object->vz = calloc(sizeof(float), nparticles);
+    object->vout = NULL;
+    object->fout = NULL;
+    object->pout = NULL;
+    object->outfreq = 5;
     
     return object;
 }
@@ -81,6 +85,21 @@ void xcmd_object_release(xcmd_object_t *object)
     
     if (object->vz) {
         free(object->vz);
+    }
+    
+    if (object->pout) {
+        fflush(object->pout);
+        fclose(object->pout);
+    }
+    
+    if (object->vout) {
+        fflush(object->vout);
+        fclose(object->vout);
+    }
+    
+    if (object->fout) {
+        fflush(object->fout);
+        fclose(object->fout);
     }
         
     free(object);

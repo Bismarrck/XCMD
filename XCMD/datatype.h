@@ -48,6 +48,9 @@ typedef struct __xcmd_object
     float virial;   /* the total virial of the system. */
     bool scale;     /* logical value for controling rescaling. */
     int outfreq;    /* the output frequency. */
+    FILE *vout;     /* the output file for velocities. */
+    FILE *pout;     /* the output file for positions. */
+    FILE *fout;     /* the output file for forces. */
 } xcmd_object_t;
 
 

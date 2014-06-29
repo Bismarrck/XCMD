@@ -14,6 +14,8 @@
 		32525400193DEB9200B484CB /* leapfrog.c in Sources */ = {isa = PBXBuildFile; fileRef = 325253FF193DEB9200B484CB /* leapfrog.c */; };
 		32525403193DF25C00B484CB /* lj.c in Sources */ = {isa = PBXBuildFile; fileRef = 32525402193DF25C00B484CB /* lj.c */; };
 		326A4FD3195FAEA0003D9C10 /* unit.c in Sources */ = {isa = PBXBuildFile; fileRef = 326A4FD2195FAEA0003D9C10 /* unit.c */; };
+		326A4FD61960100C003D9C10 /* anderson.c in Sources */ = {isa = PBXBuildFile; fileRef = 326A4FD51960100C003D9C10 /* anderson.c */; };
+		326A4FD9196024E8003D9C10 /* xcmd.c in Sources */ = {isa = PBXBuildFile; fileRef = 326A4FD8196024E8003D9C10 /* xcmd.c */; };
 		32B89E4C192B9CA300D9E4A0 /* ewald.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B89E4B192B9CA300D9E4A0 /* ewald.c */; };
 		32D36F34193CC63900FBE298 /* fileio.c in Sources */ = {isa = PBXBuildFile; fileRef = 32D36F33193CC63900FBE298 /* fileio.c */; };
 		32D36F37193CC75D00FBE298 /* datatype.c in Sources */ = {isa = PBXBuildFile; fileRef = 32D36F36193CC75D00FBE298 /* datatype.c */; };
@@ -48,6 +50,9 @@
 		32525404193DF44200B484CB /* force.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = force.h; sourceTree = "<group>"; };
 		326A4FD1195FAE8C003D9C10 /* unit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unit.h; sourceTree = "<group>"; };
 		326A4FD2195FAEA0003D9C10 /* unit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unit.c; sourceTree = "<group>"; };
+		326A4FD51960100C003D9C10 /* anderson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = anderson.c; sourceTree = "<group>"; };
+		326A4FD7196024CD003D9C10 /* xcmd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xcmd.h; sourceTree = "<group>"; };
+		326A4FD8196024E8003D9C10 /* xcmd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xcmd.c; sourceTree = "<group>"; };
 		32B89E4A192B9C9C00D9E4A0 /* ewald.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ewald.h; sourceTree = "<group>"; };
 		32B89E4B192B9CA300D9E4A0 /* ewald.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ewald.c; sourceTree = "<group>"; };
 		32D36F32193CC63200FBE298 /* fileio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fileio.h; sourceTree = "<group>"; };
@@ -91,12 +96,15 @@
 			isa = PBXGroup;
 			children = (
 				3209DBC4192B65C800C9BF0A /* main.c */,
+				326A4FD7196024CD003D9C10 /* xcmd.h */,
+				326A4FD8196024E8003D9C10 /* xcmd.c */,
 				3209DBC6192B65C800C9BF0A /* XCMD.1 */,
 				32B89E4A192B9C9C00D9E4A0 /* ewald.h */,
 				32B89E4B192B9CA300D9E4A0 /* ewald.c */,
 				325253FC193DEB8000B484CB /* motion.h */,
 				325253FD193DEB8A00B484CB /* verlet.c */,
 				325253FF193DEB9200B484CB /* leapfrog.c */,
+				326A4FD51960100C003D9C10 /* anderson.c */,
 				32525404193DF44200B484CB /* force.h */,
 				32525401193DF25100B484CB /* potential.h */,
 				32525402193DF25C00B484CB /* lj.c */,
@@ -167,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326A4FD9196024E8003D9C10 /* xcmd.c in Sources */,
 				325253F8193D955B00B484CB /* velocity.c in Sources */,
+				326A4FD61960100C003D9C10 /* anderson.c in Sources */,
 				32D36F3D193CCE7F00FBE298 /* global.c in Sources */,
 				3209DBC5192B65C800C9BF0A /* main.c in Sources */,
 				32525403193DF25C00B484CB /* lj.c in Sources */,

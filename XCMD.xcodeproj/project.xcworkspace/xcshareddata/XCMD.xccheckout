@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2A34E189-4AB9-414F-AF6B-3E33D69A8D0A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>XCMD</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>66DEE212-F259-4666-9A24-893C54B9CE7B</key>
+		<string>https://github.com/Bismarrck/XCMD.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>XCMD.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>66DEE212-F259-4666-9A24-893C54B9CE7B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Bismarrck/XCMD.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>66DEE212-F259-4666-9A24-893C54B9CE7B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>66DEE212-F259-4666-9A24-893C54B9CE7B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XCMD</string>
+		</dict>
+	</array>
+</dict>
+</plist>

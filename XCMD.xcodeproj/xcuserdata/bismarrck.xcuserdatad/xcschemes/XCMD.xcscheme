@@ -57,6 +57,12 @@
             ReferencedContainer = "container:XCMD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Users/bismarrck/Desktop/input.txt /Users/bismarrck/Desktop/md.out"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

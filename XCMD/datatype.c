@@ -40,6 +40,8 @@ xcmd_object_t *xcmd_init_object(int nparticles)
     object->fout = NULL;
     object->pout = NULL;
     object->outfreq = 5;
+    object->scale = true;
+    object->nu = 1.0;
     
     return object;
 }

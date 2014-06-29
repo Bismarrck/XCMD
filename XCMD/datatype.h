@@ -51,6 +51,7 @@ typedef struct __xcmd_object
     FILE *vout;     /* the output file for velocities. */
     FILE *pout;     /* the output file for positions. */
     FILE *fout;     /* the output file for forces. */
+    float nu;       /* possion distribution parameter for anderson thermostat.*/
 } xcmd_object_t;
 
 

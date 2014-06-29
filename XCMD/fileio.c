@@ -25,6 +25,7 @@ static const char *MD_KEYS[] =
     "MD_EQUIL_TIME",
     "MD_SIGMA",
     "MD_EPSILON",
+    "MD_NU",
     "MD_CUTOFF",
     "MD_FOUT",
     "MD_VOUT",
@@ -39,10 +40,12 @@ static const char *MD_KEYS[] =
 #define MD_EQUIL_TIME   5
 #define MD_SIGMA        6
 #define MD_EPSILON      7
-#define MD_CUTOFF       8
-#define MD_FOUT         9
-#define MD_VOUT         10
-#define MD_POUT         11
+#define MD_NU           8
+#define MD_CUTOFF       9
+#define MD_FOUT         10
+#define MD_VOUT         11
+#define MD_POUT         12
+
 
 
 /**
@@ -82,6 +85,7 @@ xcmd_object_t *io_read_input(const char *filepath)
     float sigma = 0.0;
     float epsilon = 0.0;
     float cutoff = 0.0;
+    float nu = 0.0;
     char *fout = NULL;
     char *vout = NULL;
     char *pout = NULL;
@@ -105,6 +109,8 @@ xcmd_object_t *io_read_input(const char *filepath)
                 sigma = string_to_float(val);
             } else if (strcmp(key, MD_KEYS[MD_EPSILON]) == 0) {
                 epsilon = string_to_float(val);
+            } else if (strcmp(key, MD_KEYS[MD_NU]) == 0) {
+                nu = string_to_float(val);
             } else if (strcmp(key, MD_KEYS[MD_CUTOFF]) == 0) {
                 cutoff = string_to_float(val);
             } else if (strcmp(key, MD_KEYS[MD_POUT]) == 0) {
@@ -132,6 +138,7 @@ xcmd_object_t *io_read_input(const char *filepath)
     object->box = box;
     object->sigma = sigma;
     object->tequil = equiltime;
+    object->nu = nu;
     
     // Calculate the cutoff energy
     float hbox = 0.5 * box;

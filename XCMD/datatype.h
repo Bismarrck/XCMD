@@ -9,6 +9,8 @@
 #ifndef __XCMD_DATATYPE_H__
 #define __XCMD_DATATYPE_H__
 
+#include <stdbool.h>
+
 /**
  * @class xcmd_object_t
  *
@@ -32,6 +34,8 @@ typedef struct __xcmd_object
     int nparticle;  /* the number of particles in this molecular. */
     float temp;     /* the desired temperature. */
     float timestep; /* the time between two simulations. */
+    float tsim;     /* the total simulation time. */
+    float tequil;   /* the total equilibrium time. */
     int nsteps;     /* the number of total simulation steps. */
     float ekin;     /* the kinetic energy of current step. */
     float etot;     /* the total energy of current step. */
@@ -42,6 +46,8 @@ typedef struct __xcmd_object
     float box;      /* the simulation cubic box side length. */
     float rc2;      /* the square of cutoff radius. */
     float virial;   /* the total virial of the system. */
+    bool scale;     /* logical value for controling rescaling. */
+    int outfreq;    /* the output frequency. */
 } xcmd_object_t;
 
 

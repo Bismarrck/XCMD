@@ -25,4 +25,18 @@ void motion_leapfrog(xcmd_object_t *md);
 void motion_verlet(xcmd_object_t *md);
 
 
+/**
+ * @function motion_anderson_thermostat_first
+ * First update of equation of motion of anderson thermostat algorithm.
+ */
+void motion_anderson_thermostat_first(xcmd_object_t *md);
+
+
+/**
+ * @function motion_anderson_thermostat_second
+ * Second update of equation of motion of anderson thermostat algorithm.
+ */
+void motion_anderson_thermostat_second(xcmd_object_t *md);
+
+
 #endif

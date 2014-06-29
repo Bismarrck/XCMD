@@ -25,7 +25,10 @@ static const char *MD_KEYS[] =
     "MD_EQUIL_TIME",
     "MD_SIGMA",
     "MD_EPSILON",
-    "MD_CUTOFF"
+    "MD_CUTOFF",
+    "MD_FOUT",
+    "MD_VOUT",
+    "MD_POUT"
 };
 
 #define MD_ATOM_NUM     0
@@ -37,6 +40,9 @@ static const char *MD_KEYS[] =
 #define MD_SIGMA        6
 #define MD_EPSILON      7
 #define MD_CUTOFF       8
+#define MD_FOUT         9
+#define MD_VOUT         10
+#define MD_POUT         11
 
 
 xcmd_object_t *io_read_input(const char *filepath)
@@ -64,6 +70,9 @@ xcmd_object_t *io_read_input(const char *filepath)
     float sigma = 0.0;
     float epsilon = 0.0;
     float cutoff = 0.0;
+    char *fout = NULL;
+    char *vout = NULL;
+    char *pout = NULL;
     
     // First pass to get all the options.
     while (fgets(buf, sizeof(buf), fp) != NULL) {
@@ -86,6 +95,12 @@ xcmd_object_t *io_read_input(const char *filepath)
                 epsilon = string_to_float(val);
             } else if (strcmp(key, MD_KEYS[MD_CUTOFF]) == 0) {
                 cutoff = string_to_float(val);
+            } else if (strcmp(key, MD_KEYS[MD_POUT]) == 0) {
+                pout = strdup(val);
+            } else if (strcmp(key, MD_KEYS[MD_VOUT]) == 0) {
+                vout = strdup(val);
+            } else if (strcmp(key, MD_KEYS[MD_FOUT]) == 0) {
+                fout = strdup(val);
             }
         }
     }
@@ -111,6 +126,28 @@ xcmd_object_t *io_read_input(const char *filepath)
     float rc = hbox < cutoff ? hbox : cutoff;
     object->rc2 = rc * rc;
     object->ecut = 4.0 * epsilon * (pow(sigma/rc, 12.0) - pow(sigma/rc, 6.0));
+    
+    // Open the three output FILE streams.
+    object->pout = fopen(pout, "w+");
+    if (object->pout == NULL) {
+        fprintf(xcmdout, "Failed to create file %s.\n", pout);
+        abort();
+    }
+    free(pout);
+    
+    object->fout = fopen(fout, "w+");
+    if (object->fout == NULL) {
+        fprintf(xcmdout, "Failed to create file %s.\n", fout);
+        abort();
+    }
+    free(fout);
+    
+    object->vout = fopen(vout, "w+");
+    if (object->vout == NULL) {
+        fprintf(xcmdout, "Failed to create file %s.\n", vout);
+        abort();
+    }
+    free(vout);
     
     // Second pass to get the initial coordinates.
     while (fgets(buf, sizeof(buf), fp) != NULL) {

@@ -9,9 +9,7 @@
 #ifndef __XCMD_VELOCITY_H__
 #define __XCMD_VELOCITY_H__
 
-
 #include "datatype.h"
-
 
 /**
  * @function velocity_init_random
@@ -43,6 +41,20 @@ void velocity_rescale(xcmd_object_t *object);
  * Compute the current kinetic energy.
  */
 void velocity_kinetic_energy(xcmd_object_t *object);
+
+
+/**
+ * @function velocity_anderson_thermostat_first
+ * First update of equation of motion of anderson thermostat algorithm.
+ */
+void velocity_anderson_thermostat_first(xcmd_object_t *md);
+
+
+/**
+ * @function velocity_anderson_thermostat_second
+ * Second update of equation of motion of anderson thermostat algorithm.
+ */
+void velocity_anderson_thermostat_second(xcmd_object_t *md);
 
 
 #endif

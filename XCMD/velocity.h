@@ -9,9 +9,7 @@
 #ifndef __XCMD_VELOCITY_H__
 #define __XCMD_VELOCITY_H__
 
-
 #include "datatype.h"
-
 
 /**
  * @function velocity_init_random
@@ -43,6 +41,9 @@ void velocity_rescale(xcmd_object_t *object);
  * Compute the current kinetic energy.
  */
 void velocity_kinetic_energy(xcmd_object_t *object);
+
+
+
 
 
 #endif

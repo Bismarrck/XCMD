@@ -37,6 +37,12 @@ extern void random_seed(void);
 extern float random_uniform(void);
 
 /**
+ * @function
+ * Return a randon float with Gaussian Distribution (0, sigma)
+ */
+extern float gauss(float sigma);
+
+/**
  * @function isFileExists
  * Check if the file exists or not, given the filepath. Return 1 if exists.
  */

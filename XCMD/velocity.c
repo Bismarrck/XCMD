@@ -30,6 +30,9 @@ void velocity_init_random(xcmd_object_t *md)
     float f = 0.0;
     float temp = md->temp;
     
+    // Set a new random seed.
+    random_seed();
+    
     // Give each atom a random velocity
     for (int i = 0; i < md->nparticle; i ++) {
         md->vx[i] = random_uniform() - 0.5;
@@ -49,8 +52,8 @@ void velocity_init_random(xcmd_object_t *md)
     vv2 = 0.0;
     for (int i = 0; i < md->nparticle; i ++) {
         md->vx[i] = (md->vx[i] - vx0) * f;
-        md->vx[i] = (md->vy[i] - vy0) * f;
-        md->vx[i] = (md->vz[i] - vz0) * f;
+        md->vy[i] = (md->vy[i] - vy0) * f;
+        md->vz[i] = (md->vz[i] - vz0) * f;
         vxt += md->vx[i];
         vyt += md->vy[i];
         vzt += md->vz[i];
@@ -120,5 +123,4 @@ void velocity_kinetic_energy(xcmd_object_t *object)
     }
     object->ekin = 0.5 * v2;
 }
-
 

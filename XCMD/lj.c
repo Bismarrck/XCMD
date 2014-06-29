@@ -91,6 +91,7 @@ void force_lenard_jones(xcmd_object_t *md)
     float dfx = 0.0;
     float dfy = 0.0;
     float dfz = 0.0;
+    float vij = 0.0;
     
     for (int i = 0; i < md->nparticle; i ++) {
         xi = md->px[i];
@@ -109,8 +110,9 @@ void force_lenard_jones(xcmd_object_t *md)
                 r2i = 1.0 / r2;
                 r6i = r2i * r2i * r2i;
                 epot += 4.0 * epsilon * (s12 * r6i * r6i - s6 * r6i) - ecut;
-                vir += 48.0 * epsilon * (s12 * r6i * r6i - 0.5 * s6 * r6i);
-                fr = vir * r2i;
+                vij = 48.0 * epsilon * (s12 * r6i * r6i - 0.5 * s6 * r6i);
+                vir += vij;
+                fr = vij * r2i;
                 dfx = fr * dx;
                 dfy = fr * dy;
                 dfz = fr * dz;
@@ -129,4 +131,8 @@ void force_lenard_jones(xcmd_object_t *md)
     memcpy(md->fx, fx, sizeof(float)*md->nparticle);
     memcpy(md->fy, fy, sizeof(float)*md->nparticle);
     memcpy(md->fz, fz, sizeof(float)*md->nparticle);
+    
+    free(fx);
+    free(fy);
+    free(fz);
 }

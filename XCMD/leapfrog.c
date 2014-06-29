@@ -32,7 +32,6 @@ void motion_leapfrog(xcmd_object_t *md)
         md->pz[i] += md->timestep * md->vz[i];
         vv2 += powf(md->vx[i] + pvx, 2) + powf(md->vy[i] + pvy, 2);
         vv2 += powf(md->vz[i] + pvz, 2);
-        vv2 *= 0.25;
     }
-    md->ekin = vv2 * 0.5;
+    md->ekin = vv2 * 0.5 * 0.25;
 }
